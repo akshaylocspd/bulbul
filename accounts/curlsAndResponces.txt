@@ -1,0 +1,42 @@
+instructions:-
+1. i want to create api documentation for below curl command 
+
+curl -X PUT http://127.0.0.1:8000/api/get_user_profile/ -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NDk5OTY2LCJpYXQiOjE3MDU2NTk5NjYsImp0aSI6ImI2MjRiMmZlMzU2ZjRlNWFhNTFkNWQ0NjZkMzM4Yjk0IiwidXNlcl9pZCI6NH0.5KAmttv_MKW0DN3rv2-_aVYgkfSkNwMYtyuwlMOv6tA" -H "Content-Type: application/json" -d '{
+    "my_interest": "update",
+    "about_you": "nothing",
+    "email": "update@gmail.com",
+    "fname": "akshay",
+    "lname": "vairagade",
+    "reward_points": 0,
+    "travel_trips": 0,
+    "bucket_list": 0
+}'
+
+2. this is json response
+{"message":"user updated successfully.","data":{"my_interest":"update","about_you":"nothing","email":"update@gmail.com","fname":"akshay","lname":"vairagade","reward_points":0,"travel_trips":0,"bucket_list":"0"}}
+
+3. create documentation in html
+
+
+
+curl -X GET http://127.0.0.1:8000/api/get_user_profile/ -H "Authorization: Bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NDk5OTY2LCJpYXQiOjE3MDU2NTk5NjYsImp0aSI6ImI2MjRiMmZlMzU2ZjRlNWFhNTFkNWQ0NjZkMzM4Yjk0IiwidXNlcl9pZCI6NH0.5KAmttv_MKW0DN3rv2-_aVYgkfSkNwMYtyuwlMOv6tA""
+{"username":"7030151180@","my_interest":"singing","about_you":"nothing","email":"lions@gmail.com","number":"7030151180","profile_image_url":null,"fname":"akshay","lname":"vairagade","reward_points":0,"travel_trips":0,"bucket_list":0,"my_images":null,"my_status_images":null}
+
+curl -X POST http://127.0.0.1:8000/api/send_otp/ -H "Content-Type: application/json" -d '{"number": "7030151181"}'
+{"message":"OTP sent."}
+
+curl -X POST http://127.0.0.1:8000/api/verify_otp/ -H "Content-Type: application/json" -d '{"number": "7030151181","otp":"128910"}'
+{"regestrationMsg":{"msg":"login successful"},"otpVerificationMsg":"verification successfully","accessToken":{"refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NzUyNTA4NSwiaWF0IjoxNzA1Njg1MDg1LCJqdGkiOiJjZWQ0YmM3ZGI2YmU0ZDA4YmNhYjQ4YTg1OWE0NDFiYiIsInVzZXJfaWQiOjV9.QquxIhdRJkM8WiYETJAR5SbiG7dFBNeYg3uMLG0tjLs","access":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NTI1MDg1LCJpYXQiOjE3MDU2ODUwODUsImp0aSI6IjM5MjVkNmVhNmM5ZDQ5YjA4YmU4YTQ1NjFmNWZhMmI4IiwidXNlcl9pZCI6NX0.dTwJ4KjdGpmxGsHP72v3-W52d8c3Z7q7Vjot4KQm8_g"}}
+
+curl -X PUT http://127.0.0.1:8000/api/get_user_profile/ -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NDk5OTY2LCJpYXQiOjE3MDU2NTk5NjYsImp0aSI6ImI2MjRiMmZlMzU2ZjRlNWFhNTFkNWQ0NjZkMzM4Yjk0IiwidXNlcl9pZCI6NH0.5KAmttv_MKW0DN3rv2-_aVYgkfSkNwMYtyuwlMOv6tA" -H "Content-Type: application/json" -d '{
+    "my_interest": "update",
+    "about_you": "nothing",
+    "email": "update@gmail.com",
+    "fname": "akshay",
+    "lname": "vairagade",
+    "reward_points": 0,
+    "travel_trips": 0,
+    "bucket_list": 0
+}'
+{"message":"user updated successfully.","data":{"my_interest":"update","about_you":"nothing","email":"update@gmail.com","fname":"akshay","lname":"vairagade","reward_points":0,"travel_trips":0,"bucket_list":"0"}}
+

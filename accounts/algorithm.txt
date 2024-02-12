@@ -1,0 +1,22 @@
+//////////////////////Sign Up and Login process/////////////////////////////
+(complete)step 1 create a send otp on number api (sendOtpApi) POST Number
+(complete)step 2 when (sendOtpApi) API hit by user then generate OTP and store OTP and Number in database if the number is already exist in database then update otp
+(pending)step 3 hit fast2sms api from backend and send the otp to the users number 
+(complete)step 4 create a verify otp api (verifyOtpApi) 
+(complete)step 5 when (verifyOtpApi) API hit by user then compair the otp enterd by user with the otp stored in database
+(complete)step 6 if the otp verification success then hit sign up API internally or if the user is already registerd then create access token and send access token as a json response
+(complete)step 7 regester a user by putting userName, number, email , profile picture , password
+(complete)step 8 use number and some text as username , use number as a password
+(complete)step 9 after successfull regestration of user generate access token and send this access token as a json response of (verifyOtpApi)
+/////////////////////////////// login process ///////////////////////
+
+
+//////////////////////Update Profile process/////////////////////////////
+
+(pending)step 1 create update profile API (updateProfileApi)
+(pending)step 2 using (updateProfileApi) Api user can update their profile like "fname , lname, email , profile picture"
+(pending)step 3 when user hit (updateProfileApi) Api user can update their personal data by using access token 
+
+///////////////////// delete profile ////////////////////
+
+//////////////////// search hotels,  , places, historic , 

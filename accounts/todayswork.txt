@@ -1,0 +1,4 @@
+create below fields into json object 
+
+hotel_restorent_Name, Image, price, retings, 
+reviews(userName , reviewDescription), city, state ,zipCode, address, hotel_restorent_OwnerName, hotel_restorent_Number

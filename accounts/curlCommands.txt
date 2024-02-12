@@ -1,0 +1,166 @@
+curl -X PUT http://127.0.0.1:8000/api/signup/ -H "Content-Type: application/json" --data-binary '{"username": "ak", "email": "ak@example.com", "password": "testpassword", "number": "1234567890"}'
+
+curl -X POST http://127.0.0.1:8000/api/signup/ -H "Content-Type: application/json" -d '{"username": "google", "email": "google@example.com", "password": "akshay", "number": "9876543210"}'
+
+curl -X GET http://127.0.0.1:8000/api/get_user_profile/ -H "Authorization: Bearer "your_access_token""
+
+
+# Get user by your_access_token
+curl -X GET http://127.0.0.1:8000/api/get_user_profile/ -H "Authorization: Bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NjY3Nzc5LCJpYXQiOjE3MDU4Mjc3NzksImp0aSI6ImJiZmRiZGRhNGZlOTQ3OTdiM2M1MTQ5NGNhOGE0ZjcxIiwidXNlcl9pZCI6Mn0.OSYKw-ZpLUrEncyfNPJebR3cWQ1B6stXd_LJhJZLSLU""
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NjY3Nzc5LCJpYXQiOjE3MDU4Mjc3NzksImp0aSI6ImJiZmRiZGRhNGZlOTQ3OTdiM2M1MTQ5NGNhOGE0ZjcxIiwidXNlcl9pZCI6Mn0.OSYKw-ZpLUrEncyfNPJebR3cWQ1B6stXd_LJhJZLSLU
+# Delete user by your_access_token
+curl -X DELETE http://127.0.0.1:8000/api/get_user_profile/ -H "Authorization: Bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1Njk0OTYzLCJpYXQiOjE3MDU2NTg5NjMsImp0aSI6ImZlYzAyOTg3MjNmMTQwZThhZGI1YmY2Mzc0MjcwMjcyIiwidXNlcl9pZCI6M30.bgjbAZKr3MEpMLLIUThbru2QKFHuF8tKYJC2STVvrn8""
+
+// send otp
+curl -X POST http://127.0.0.1:8000/api/send_otp/ -H "Content-Type: application/json" -d '{"number": "7030151180"}'
+
+https://www.fast2sms.com/dev/bulkV2?authorization=YCivzAarE0OWFxltfobQ3w4U6PI1chk27gmTXudSVJ5HyBMnLjBUszm3IhbREJg0DGP8jrWKeq297ipY&variables_values=5599&route=otp&numbers=7030151180
+
+
+//verify otp
+curl -X POST http://127.0.0.1:8000/api/verify_otp/ -H "Content-Type: application/json" -d '{"number": "7030151180","otp":"729787"}'
+
+{"number": "1234567890","otp":"123456"}
+
+//update profile             
+
+curl -X PUT http://127.0.0.1:80/api/get_user_profile/ \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4NjUzNDQ5LCJpYXQiOjE3MDY4MTM0NDksImp0aSI6IjFlYjQ3ZTBmYTBlODQ0Mjc4NTAwODBjMDE0NTFiYjk4IiwidXNlcl9pZCI6M30.8Bwo1YkSiqru6aa8cpmvbwyfKq8XDYo4rMQTsD4FED8" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "newemail@example.com",
+    "about_you": "Updated about you",
+    "bio": "Updated bio",
+    "interest1": "New Interest 1",
+    "interest2": "New Interest 2",
+    "interest3": "New Interest 3",
+    "interest4": "New Interest 4",
+    "interest5": "New Interest 5",
+    "fname": "New First Name",
+    "lname": "New Last Name",
+    "forum_posts": 42,
+    "photos_added": 10,
+    "favorites": 5
+}'
+
+///////////////////////////////////////
+//update profile  with profile photo
+
+curl -X PUT http://127.0.0.1:8000/api/get_user_profile/ \
+-H "Authorization: Bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzODg0NDkyLCJpYXQiOjE3MDM4NDg0OTIsImp0aSI6IjllMTVmYjljMDVhZTQ3OGU4ODBhODkzZWE5YzYwOWZkIiwidXNlcl9pZCI6M30.aSNBncqY7mGcVi5G-WVARsjIbJiC3ilG72Erii4na88"" \
+-H "Content-Type: multipart/form-data" \
+-F "email=new_email@example.com" \
+-F "fname=NewFirstName" \
+-F "lname=NewLastName" \
+-F "profile_image=/abc.png"
+
+// get users My_images urls
+
+curl -X GET http://127.0.0.1:8000/api/myimages/?username=test_user -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+curl -X GET http://127.0.0.1:8000/api/myimages/?username=ram
+
+// Delete My_images 
+curl -X DELETE http://127.0.0.1:8000/api/myimages/1/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+curl -X DELETE http://127.0.0.1:8000/api/myimages/2/
+
+// upload My_images
+curl -X POST http://127.0.0.1:8000/api/myimages/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: multipart/form-data" -F "userName=ram" -F "image_file=@car.png"
+curl -X POST http://127.0.0.1:8000/api/myimages/ -H "Content-Type: multipart/form-data" -F "userName=ram" -F "image_file=@car.png"
+
+// update My_images
+curl -X PUT http://127.0.0.1:8000/api/myimages/1/ -H "Content-Type: multipart/form-data" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -F "userName=test_updated" -F "image_file=@/path/to/your/updated_image.jpg"
+curl -X PUT http://127.0.0.1:8000/api/myimages/4/ -H "Content-Type: multipart/form-data" -F "userName=sham" -F "image_file=@car.png"
+//
+
+// get users My_Status_Images urls
+curl -X GET http://127.0.0.1:8000/api/mystatusimages/?username=test_user -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+curl -X GET http://127.0.0.1:8000/api/mystatusimages/?username=ram
+
+// Delete My_Status_Images 
+curl -X DELETE http://127.0.0.1:8000/api/mystatusimages/1/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+curl -X DELETE http://127.0.0.1:8000/api/mystatusimages/2/
+
+// upload My_Status_Images
+curl -X POST http://127.0.0.1:8000/api/mystatusimages/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: multipart/form-data" -F "userName=ram" -F "image_file=@car.png"
+curl -X POST http://127.0.0.1:8000/api/mystatusimages/ -H "Content-Type: multipart/form-data" -F "userName=ram" -F "image_file=@car.png"
+
+// update My_Status_Images
+curl -X PUT http://127.0.0.1:8000/api/mystatusimages/1/ -H "Content-Type: multipart/form-data" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -F "userName=test_updated" -F "image_file=@/path/to/your/updated_image.jpg"
+curl -X PUT http://127.0.0.1:8000/api/mystatusimages/4/ -H "Content-Type: multipart/form-data" -F "userName=sham" -F "image_file=@car.png"
+
+
+
+// get users My_Profile_Images urls
+curl -X GET http://127.0.0.1:8000/api/myprofileimages/?username=test_user -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3NjY3MDMxLCJpYXQiOjE3MDU4MjcwMzEsImp0aSI6Ijc0NDRiOTVjZThkOTQ1ZTk5MmE5Y2YwMDFmZmJiMDIzIiwidXNlcl9pZCI6Mn0.kG07F-PpJ0a8zcR4ah6I7_JWggJ_GuHd0uB-wXq4Dvo"
+curl -X GET http://127.0.0.1:8000/api/myprofileimages/?username=7030151180@
+
+// Delete My_Profile_Images 
+curl -X DELETE http://127.0.0.1:8000/api/myprofileimages/1/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+curl -X DELETE http://127.0.0.1:8000/api/myprofileimages/2/
+
+// upload My_Profile_Images
+curl -X POST http://127.0.0.1:8000/api/myprofileimages/ -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: multipart/form-data" -F "userName=ram" -F "image_file=@car.png"
+curl -X POST http://127.0.0.1:8000/api/myprofileimages/ -H "Content-Type: multipart/form-data" -F "userName=7030151180@" -F "image_file=@car.png"
+
+// update My_Profile_Images
+curl -X PUT http://127.0.0.1:8000/api/myprofileimages/1/ -H "Content-Type: multipart/form-data" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -F "userName=test_updated" -F "image_file=@/path/to/your/updated_image.jpg"
+curl -X PUT http://127.0.0.1:8000/api/myprofileimages/3/ -H "Content-Type: multipart/form-data" -F "userName=7030151180@" -F "image_file=@car2.png"
+
+// get hotel booking details
+curl http://localhost:8000/booking/api/payments/
+
+// book hotel
+curl -X POST -H "Content-Type: application/json" -d '{"last_name": "Doe", "first_name": "John", "email": "john.doe@example.com", "phone_number": "1234567890", "hotel_name": "Sample Hotel", "check_in": "2023-01-01", "check_out": "2023-01-05", "guests": 2, "number_of_rooms": 1, "adults": 2, "children": 0, "room_type": "Standard", "room_number": "101", "taxes": 50.0, "total": 500.0, "business_id": "12345", "payment_status": "Paid"}' http://localhost:8000/booking/api/payments/
+
+// update hotel booking details
+curl -X PUT -H "Content-Type: application/json" -d '{"payment_status": "Refunded"}' http://localhost:8000/booking/api/payments/<ID>/
+
+// delete hotel booking details
+curl -X DELETE http://localhost:8000/booking/api/payments/<ID>/
+////////////////////////////live forum apis/////////////////////////////
+
+// chat message apis
+# Retrieve particular chats of a forum
+curl -X GET -H "Authorization: Bearer YOUR_ACCESS_TOKEN" http://localhost:8000/liveForum/api/chat-messages/list-by-forum-id/{forum_unique_id}/
+
+# Retrieve all chats of all forums
+curl -X GET -H "Authorization: Bearer YOUR_ACCESS_TOKEN" http://localhost:8000/liveForum/api/chat-messages/
+
+# Post chat messages to a particular forum
+curl -X POST -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"forum_unique_id": "123456", "username": "JohnDoe", "fname_lname": "John Doe", "profile_image_url": "https://example.com/profile.jpg", "chat_msg": "Hello, World!"}' http://localhost:8000/liveForum/api/chat-messages/
+
+# Update chat messages to a particular forum
+curl -X PUT -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"chat_msg": "Updated message"}' http://localhost:8000/liveForum/api/chat-messages/<ID>/
+
+# Delete chat messages to a particular forum
+curl -X DELETE -H "Authorization: Bearer YOUR_ACCESS_TOKEN" http://localhost:8000/liveForum/api/chat-messages/<ID>/
+
+// live forum vala apis 
+# Retrieve all forums
+
+curl -X GET -H "Authorization: Bearer YOUR_ACCESS_TOKEN" http://localhost:8000/liveForum/api/forums/
+
+# Create a new forum
+curl -X POST -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"forum_name": "Discussion Forum", "date_time": "2023-01-01T12:00:00Z", "username": "JohnDoe", "user_profile_image_url": "https://example.com/profile.jpg"}' http://localhost:8000/liveForum/api/forums/
+
+# Update a forum
+curl -X PUT -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"forum_name": "UpdateDiscussion Forum", "date_time": "2023-01-01T12:00:00Z", "username": "UpdateJohnDoe", "user_profile_image_url": "https://example.com/profile.jpg"}' http://localhost:8000/liveForum/api/forums/1/
+
+# Delete a forum
+curl -X DELETE -H "Authorization: Bearer YOUR_ACCESS_TOKEN" http://localhost:8000/liveForum/api/forums/2/
+
+
+/////////////////// under development ////////////////////
+
+curl http://localhost:8000/vrapi/vrapp/hotelrestaurants/
+
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Sample Hotel", "price": "Expensive", "ratings": "4.5", "image": {"url": "https://example.com/image.jpg"}, "location": {"city": "City", "state": "State", "zip_code": "12345", "address": "123 Main St"}, "contact": {"owner_name": "Owner", "contact_number": "123-456-7890"}}' http://localhost:8000/api/hotelrestaurants/
+
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Sample Hotel", "price": "Expensive", "ratings": "4.5", "image": {"url": "https://example.com/image.jpg"}, "location": {"city": "City", "state": "State", "zip_code": "12345", "address": "123 Main St"}, "contact": {"owner_name": "Owner", "contact_number": "123-456-7890"}}' http://localhost:8000/api/hotelrestaurants/
+
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Sample Hotel", "price": "Expensive", "ratings": "4.5", "image": {"url": "https://example.com/image.jpg"}, "location": {"city": "City", "state": "State", "zip_code": "12345", "address": "123 Main St"}, "contact": {"owner_name": "Owner", "contact_number": "123-456-7890"}, "reviews":[] }' http://localhost:8000/api/hotelrestaurants/
+
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Sample Hotel", "price": "Expensive", "ratings": "4.5", "image": {"url": "https://example.com/image.jpg"}, "location": {"city": "City", "state": "State", "zip_code": "12345", "address": "123 Main St"}, "contact": {"owner_name": "Owner", "contact_number": "123-456-7890"}, "reviews": [{"user_name": "User1", "review_description": "Great experience"}]}' http://localhost:8000/api/hotelrestaurants/
+
+curl -X PUT -H "Content-Type: application/json" -d '{"name": "update Hotel", "price": "Expensive", "ratings": "4.5", "image": {"url": "https://example.com/image.jpg"}, "location": {"city": "City", "state": "State", "zip_code": "12345", "address": "123 Main St"}, "contact": {"owner_name": "Owner", "contact_number": "123-456-7890"}, "reviews": [{"user_name": "User1", "review_description": "Great experience"}]}' http://localhost:8000/api/hotelrestaurants/17/
